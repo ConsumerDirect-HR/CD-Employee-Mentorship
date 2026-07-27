@@ -45,11 +45,19 @@ jobs:
         uses: actions/deploy-pages@v5
         continue-on-error: true
 
+      - name: Wait before deploy attempt 2
+        if: steps.deploy_attempt_1.outcome == 'failure'
+        run: sleep 30
+
       - id: deploy_attempt_2
         name: Deploy to GitHub Pages (attempt 2)
         if: steps.deploy_attempt_1.outcome == 'failure'
         uses: actions/deploy-pages@v5
         continue-on-error: true
+
+      - name: Wait before deploy attempt 3
+        if: steps.deploy_attempt_1.outcome == 'failure' && steps.deploy_attempt_2.outcome == 'failure'
+        run: sleep 60
 
       - id: deploy_attempt_3
         name: Deploy to GitHub Pages (attempt 3)
