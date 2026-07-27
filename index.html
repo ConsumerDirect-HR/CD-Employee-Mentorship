@@ -4,25 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ConsumerDirect Mentorship Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cd-purple: #543a61;
-    --cd-purple-dark: #3a2744;
-    --cd-purple-light: #ede8f0;
-    --cd-purple-mid: #7a5d8a;
-    --cd-sky: #89dff7;
-    --cd-sky-light: #e8f8fd;
+    --cd-blue: #3864AE;
+    --cd-blue-dark: #24466F;
+    --cd-blue-light: #E8EEF7;
+    --cd-blue-mid: #6E8DBD;
+    --cd-sky: #5CD3F5;
+    --cd-sky-light: #EAFBFE;
+    --cd-sky-dark: #0B4D5C;
+    --cd-orange: #FF6936;
+    --cd-orange-dark: #B34A26;
+    --cd-orange-light: #FFEEE7;
+    --cd-amber: #FFC76B;
+    --cd-amber-light: #FFF6E9;
+    --cd-amber-dark: #7A4A12;
     --cd-white: #ffffff;
     --cd-gray: #f7f6f8;
     --cd-text: #1e1e2e;
     --cd-muted: #6b6b7b;
-    --cd-border: #e2dde6;
+    --cd-border: #DCE4EE;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: var(--cd-gray);
     color: var(--cd-text);
     line-height: 1.7;
@@ -42,20 +52,15 @@
     align-items: center;
     gap: 0.75rem;
   }
-  .logo-icon {
-    width: 40px; height: 40px;
-    background: var(--cd-purple);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; color: white; font-weight: 800;
+  .logo-mark {
+    height: 34px;
+    width: auto;
+    display: block;
   }
-  .logo-text { line-height: 1.2; }
-  .logo-text .brand { font-size: 1rem; font-weight: 800; color: var(--cd-purple); }
-  .logo-text .sub { font-size: 0.7rem; color: var(--cd-muted); text-transform: uppercase; letter-spacing: 0.06em; }
   .header-tag {
     margin-left: auto;
-    background: var(--cd-purple-light);
-    color: var(--cd-purple);
+    background: var(--cd-blue-light);
+    color: var(--cd-blue);
     font-size: 0.75rem;
     font-weight: 700;
     padding: 0.3rem 0.85rem;
@@ -65,7 +70,7 @@
 
   /* NAV */
   nav {
-    background: var(--cd-purple);
+    background: var(--cd-blue);
     padding: 0 1.5rem;
     display: flex;
     gap: 0.25rem;
@@ -92,7 +97,7 @@
 
   /* HERO */
   .hero {
-    background: linear-gradient(135deg, var(--cd-purple) 0%, var(--cd-purple-dark) 100%);
+    background: linear-gradient(135deg, var(--cd-blue) 0%, var(--cd-blue-dark) 100%);
     color: var(--cd-white);
     border-radius: 16px;
     padding: 2.5rem;
@@ -105,7 +110,7 @@
     position: absolute;
     right: -60px; bottom: -60px;
     width: 220px; height: 220px;
-    background: rgba(137,223,247,0.08);
+    background: rgba(92,211,245,0.08);
     border-radius: 50%;
   }
   .hero::after {
@@ -113,7 +118,7 @@
     position: absolute;
     right: 40px; top: -40px;
     width: 120px; height: 120px;
-    background: rgba(137,223,247,0.06);
+    background: rgba(92,211,245,0.06);
     border-radius: 50%;
   }
   .hero-eyebrow {
@@ -137,7 +142,7 @@
   }
   .card h2 {
     font-size: 1.1rem; font-weight: 700;
-    color: var(--cd-purple);
+    color: var(--cd-blue);
     margin-bottom: 0.65rem;
     display: flex; align-items: center; gap: 0.5rem;
   }
@@ -155,13 +160,13 @@
     border: 2px solid transparent;
     transition: transform 0.15s, box-shadow 0.15s;
   }
-  .track-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(84,58,97,0.12); }
-  .track-card.buddy { background: var(--cd-purple-light); border-color: #c5b5d1; }
-  .track-card.career { background: var(--cd-sky-light); border-color: #b3e9f9; }
+  .track-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(56,100,174,0.12); }
+  .track-card.buddy { background: var(--cd-blue-light); border-color: #AFC1DF; }
+  .track-card.career { background: var(--cd-orange-light); border-color: #FFC3AF; }
   .track-card .icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
   .track-card h3 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.3rem; }
-  .track-card.buddy h3 { color: var(--cd-purple); }
-  .track-card.career h3 { color: #0277a8; }
+  .track-card.buddy h3 { color: var(--cd-blue); }
+  .track-card.career h3 { color: var(--cd-orange-dark); }
   .track-card p { font-size: 0.85rem; color: #555; line-height: 1.55; }
 
   /* CALLOUT */
@@ -172,9 +177,9 @@
     font-size: 0.92rem;
     line-height: 1.6;
   }
-  .callout.purple { background: var(--cd-purple-light); border-left: 4px solid var(--cd-purple); color: var(--cd-purple-dark); }
-  .callout.sky { background: var(--cd-sky-light); border-left: 4px solid #1aafe0; color: #004f6e; }
-  .callout.warm { background: #fef9ec; border-left: 4px solid #d4a800; color: #5a3f00; }
+  .callout.purple { background: var(--cd-blue-light); border-left: 4px solid var(--cd-blue); color: var(--cd-blue-dark); }
+  .callout.sky { background: var(--cd-sky-light); border-left: 4px solid var(--cd-sky); color: var(--cd-sky-dark); }
+  .callout.warm { background: var(--cd-amber-light); border-left: 4px solid var(--cd-amber); color: var(--cd-amber-dark); }
 
   /* TIMELINE */
   .timeline { position: relative; padding-left: 2rem; margin-top: 0.5rem; }
@@ -190,13 +195,13 @@
     left: -1.6rem; top: 0.15rem;
     width: 1.2rem; height: 1.2rem;
     border-radius: 50%;
-    background: var(--cd-purple);
+    background: var(--cd-blue);
     border: 2px solid var(--cd-white);
-    box-shadow: 0 0 0 2px var(--cd-purple);
+    box-shadow: 0 0 0 2px var(--cd-blue);
     display: flex; align-items: center; justify-content: center;
     font-size: 0.58rem; color: white; font-weight: 700;
   }
-  .tl-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cd-purple); margin-bottom: 0.2rem; }
+  .tl-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cd-blue); margin-bottom: 0.2rem; }
   .tl-title { font-size: 0.97rem; font-weight: 700; color: var(--cd-text); margin-bottom: 0.25rem; }
   .tl-body { font-size: 0.9rem; color: #555; }
 
@@ -218,7 +223,7 @@
     padding: 0.7rem 1rem;
     align-items: start;
   }
-  .row-label { font-size: 0.8rem; font-weight: 700; color: var(--cd-purple); }
+  .row-label { font-size: 0.8rem; font-weight: 700; color: var(--cd-blue); }
   .row-text { font-size: 0.9rem; color: #444; }
 
   /* FAQ */
@@ -228,7 +233,7 @@
     padding: 1rem 0; font-size: 0.94rem; font-weight: 600; color: var(--cd-text);
     cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
   }
-  .faq-q .arrow { color: var(--cd-purple); font-size: 1rem; transition: transform 0.2s; flex-shrink: 0; }
+  .faq-q .arrow { color: var(--cd-blue); font-size: 1rem; transition: transform 0.2s; flex-shrink: 0; }
   .faq-q.open .arrow { transform: rotate(180deg); }
   .faq-a { font-size: 0.91rem; color: #555; padding-bottom: 1rem; display: none; line-height: 1.7; }
   .faq-a.open { display: block; }
@@ -244,8 +249,8 @@
     color: var(--cd-muted); cursor: pointer;
     transition: all 0.2s;
   }
-  .role-btn:hover { border-color: var(--cd-purple); color: var(--cd-purple); }
-  .role-btn.active { background: var(--cd-purple); color: white; border-color: var(--cd-purple); }
+  .role-btn:hover { border-color: var(--cd-blue); color: var(--cd-blue); }
+  .role-btn.active { background: var(--cd-blue); color: white; border-color: var(--cd-blue); }
   .role-content { display: none; }
   .role-content.active { display: block; }
 
@@ -256,7 +261,7 @@
     font-size: 0.8rem;
     color: var(--cd-muted);
   }
-  .program-footer strong { color: var(--cd-purple); }
+  .program-footer strong { color: var(--cd-blue); }
 
   @media (max-width: 500px) {
     .tracks { grid-template-columns: 1fr; }
@@ -271,11 +276,7 @@
 <!-- HEADER -->
 <header>
   <div class="logo-area">
-    <div class="logo-icon">CD</div>
-    <div class="logo-text">
-      <div class="brand">ConsumerDirect</div>
-      <div class="sub">People First</div>
-    </div>
+    <img class="logo-mark" src="logo.svg" alt="ConsumerDirect">
   </div>
   <div class="header-tag">Mentorship Program</div>
 </header>
@@ -430,7 +431,7 @@
 <!-- ═══════════ CAREER MENTORSHIP ═══════════ -->
 <div id="career" class="page">
 
-  <div class="hero" style="background: linear-gradient(135deg, #0277a8 0%, #014f6e 100%);">
+  <div class="hero" style="background: linear-gradient(135deg, #FF6936 0%, #B34A26 100%);">
     <div class="hero-eyebrow">Track 2 · Open Enrollment · Twice Per Year</div>
     <h1>🚀 Career Mentorship</h1>
     <p>A real mentor. Goals that are yours. Six months to make meaningful progress on where you want to go next.</p>
@@ -454,38 +455,38 @@
     <h2>How does it work?</h2>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-dot" style="background:#0277a8;box-shadow:0 0 0 2px #0277a8;">✦</div>
-        <div class="tl-label" style="color:#0277a8;">Before You Start</div>
+        <div class="tl-dot" style="background:#FF6936;box-shadow:0 0 0 2px #FF6936;">✦</div>
+        <div class="tl-label" style="color:#FF6936;">Before You Start</div>
         <div class="tl-title">You apply and get matched</div>
         <div class="tl-body">Fill out a short application about what you want to work on. HR shortlists 2–3 potential mentors for you. You review their profiles and share your preference. Then both of you do a casual 30-minute "get to know you" meeting — no commitment yet. If it feels right, you're matched.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot" style="background:#0277a8;box-shadow:0 0 0 2px #0277a8;">1</div>
-        <div class="tl-label" style="color:#0277a8;">Month 1 — Foundation</div>
+        <div class="tl-dot" style="background:#FF6936;box-shadow:0 0 0 2px #FF6936;">1</div>
+        <div class="tl-label" style="color:#FF6936;">Month 1 — Foundation</div>
         <div class="tl-title">Build the relationship and set your goals</div>
         <div class="tl-body">Your first two sessions are about getting to know each other and setting your goals together. You'll create a simple one-page "Mentorship Agreement" — what you want to achieve, how you'll work together, and what success looks like by Month 6.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot" style="background:#0277a8;box-shadow:0 0 0 2px #0277a8;">2</div>
-        <div class="tl-label" style="color:#0277a8;">Months 2–4 — The Real Work</div>
+        <div class="tl-dot" style="background:#FF6936;box-shadow:0 0 0 2px #FF6936;">2</div>
+        <div class="tl-label" style="color:#FF6936;">Months 2–4 — The Real Work</div>
         <div class="tl-title">Meet, talk, grow</div>
         <div class="tl-body">You meet in person every two weeks — coffee, a walk, lunch, whatever works. You set the agenda each time. You bring the topics and challenges. Your mentor brings perspective, honest feedback, and the right questions to help you think more clearly.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot" style="background:#0277a8;box-shadow:0 0 0 2px #0277a8;">3</div>
-        <div class="tl-label" style="color:#0277a8;">Month 3 — Midpoint Check-In</div>
+        <div class="tl-dot" style="background:#FF6936;box-shadow:0 0 0 2px #FF6936;">3</div>
+        <div class="tl-label" style="color:#FF6936;">Month 3 — Midpoint Check-In</div>
         <div class="tl-title">Pause, reflect, adjust</div>
         <div class="tl-body">Halfway through, you'll both take a moment to reflect on your progress. If something isn't working — your goals, your approach, even the match — this is the time to adjust. No judgment, no pressure.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot" style="background:#0277a8;box-shadow:0 0 0 2px #0277a8;">4</div>
-        <div class="tl-label" style="color:#0277a8;">Months 5–6 — Make It Visible</div>
+        <div class="tl-dot" style="background:#FF6936;box-shadow:0 0 0 2px #FF6936;">4</div>
+        <div class="tl-label" style="color:#FF6936;">Months 5–6 — Make It Visible</div>
         <div class="tl-title">Turn your growth into momentum</div>
         <div class="tl-body">The final stretch is about putting your growth to work — building confidence, making your progress visible at ConsumerDirect, and setting yourself up to keep moving forward after the program wraps.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot" style="background:#0277a8;box-shadow:0 0 0 2px #0277a8;">✓</div>
-        <div class="tl-label" style="color:#0277a8;">Month 6 — Graduation</div>
+        <div class="tl-dot" style="background:#FF6936;box-shadow:0 0 0 2px #FF6936;">✓</div>
+        <div class="tl-label" style="color:#FF6936;">Month 6 — Graduation</div>
         <div class="tl-title">Celebrate how far you've come</div>
         <div class="tl-body">Your final session is a real conversation about your journey. Your mentor shares what they genuinely see in you. You share what you're carrying forward. The program ends — but the relationship almost never does.</div>
       </div>
