@@ -53,19 +53,20 @@
     gap: 0.75rem;
   }
   .logo-mark {
-    height: 34px;
+    height: 65px;
     width: auto;
     display: block;
+    padding: 0.5rem 0;
   }
   .header-tag {
     margin-left: auto;
-    background: var(--cd-blue-light);
-    color: var(--cd-blue);
-    font-size: 0.75rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--cd-border);
+    color: var(--cd-muted);
+    font-size: 0.78rem;
     font-weight: 700;
-    padding: 0.3rem 0.85rem;
-    border-radius: 20px;
-    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   /* NAV */
@@ -90,6 +91,18 @@
   }
   nav button:hover { color: rgba(255,255,255,0.9); }
   nav button.active { color: var(--cd-sky); border-bottom-color: var(--cd-sky); }
+  nav button.nav-cta {
+    margin-left: auto;
+    align-self: center;
+    color: white;
+    background: var(--cd-orange);
+    font-weight: 700;
+    padding: 0.5rem 1.1rem;
+    border-radius: 20px;
+    border-bottom: none;
+  }
+  nav button.nav-cta:hover { color: white; background: var(--cd-orange-dark); }
+  nav button.nav-cta.active { color: white; border-bottom-color: transparent; }
 
   /* PAGES */
   .page { display: none; max-width: 800px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
@@ -254,6 +267,40 @@
   .role-content { display: none; }
   .role-content.active { display: block; }
 
+  /* FORM */
+  .form-group { margin-bottom: 1.1rem; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--cd-text); margin-bottom: 0.35rem; }
+  .form-group .optional { font-weight: 400; color: var(--cd-muted); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.92rem;
+    padding: 0.6rem 0.75rem;
+    border: 1.5px solid var(--cd-border);
+    border-radius: 8px;
+    color: var(--cd-text);
+    background: var(--cd-white);
+    transition: border-color 0.15s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { outline: none; border-color: var(--cd-blue); }
+  .form-group textarea { resize: vertical; }
+  .btn-submit {
+    background: var(--cd-blue);
+    color: white;
+    border: none;
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 0.75rem 1.6rem;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn-submit:hover { background: var(--cd-blue-dark); }
+
   /* FOOTER */
   .program-footer {
     text-align: center;
@@ -288,6 +335,7 @@
   <button onclick="showPage('career', this)">🚀 Career Mentorship</button>
   <button onclick="showPage('myrole', this)">👤 My Role</button>
   <button onclick="showPage('faq', this)">💬 FAQs</button>
+  <button class="nav-cta" onclick="showPage('apply', this)">📝 Apply Now</button>
 </nav>
 
 <!-- ═══════════ HOME ═══════════ -->
@@ -725,6 +773,51 @@
 
 </div>
 
+<!-- ═══════════ APPLY NOW ═══════════ -->
+<div id="apply" class="page">
+
+  <div class="hero" style="background: linear-gradient(135deg, var(--cd-orange) 0%, var(--cd-orange-dark) 100%);">
+    <div class="hero-eyebrow">Raise Your Hand</div>
+    <h1>📝 Apply Now</h1>
+    <p>Ready to be a Buddy, a Mentee, or a Mentor? Tell us a bit about yourself and we'll take it from there.</p>
+  </div>
+
+  <div class="card">
+    <h2>Application</h2>
+    <form id="apply-form" onsubmit="return handleApply(event)">
+      <div class="form-group">
+        <label for="apply-name">Full Name</label>
+        <input type="text" id="apply-name" name="name" autocomplete="name" required>
+      </div>
+      <div class="form-group">
+        <label for="apply-email">Work Email</label>
+        <input type="email" id="apply-email" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-group">
+        <label for="apply-department">Department</label>
+        <input type="text" id="apply-department" name="department" required>
+      </div>
+      <div class="form-group">
+        <label for="apply-role">I'm applying to be a...</label>
+        <select id="apply-role" name="role" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="buddy">Buddy</option>
+          <option value="mentee">Mentee (Career Mentorship)</option>
+          <option value="mentor">Mentor (Career Mentorship)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="apply-notes">Anything else you'd like us to know? <span class="optional">(optional)</span></label>
+        <textarea id="apply-notes" name="notes" rows="4" placeholder="Goals, availability, why you're interested..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Submit Application</button>
+    </form>
+    <div id="apply-success" class="callout purple" style="display:none; margin-top:1.25rem;">
+      Your email app should have opened with your application ready to send to <strong>hr@consumerdirect.com</strong>. Just hit send there to finish submitting. If nothing opened, email HR / People Ops directly with your name, email, department, and the role you're applying for.
+    </div>
+  </div>
+</div>
+
 <script>
 function showPage(id, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -749,6 +842,28 @@ function toggleFaq(btn) {
   document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
   document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
   if (!isOpen) { ans.classList.add('open'); btn.classList.add('open'); }
+}
+function handleApply(event) {
+  event.preventDefault();
+  const form = document.getElementById('apply-form');
+  const roleField = form.role;
+  const roleLabel = roleField.options[roleField.selectedIndex].text;
+
+  const bodyLines = [
+    `Name: ${form.name.value.trim()}`,
+    `Email: ${form.email.value.trim()}`,
+    `Department: ${form.department.value.trim()}`,
+    `Applying as: ${roleLabel}`,
+    `Notes: ${form.notes.value.trim() || '—'}`
+  ];
+  const subject = `Mentorship Program Application - ${form.name.value.trim()}`;
+  const mailtoLink = `mailto:hr@consumerdirect.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+
+  window.location.href = mailtoLink;
+
+  form.style.display = 'none';
+  document.getElementById('apply-success').style.display = 'block';
+  return false;
 }
 </script>
 </body>
