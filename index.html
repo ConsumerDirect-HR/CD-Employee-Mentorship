@@ -94,7 +94,6 @@
   nav button:hover { color: rgba(255,255,255,0.9); }
   nav button.active { color: var(--cd-sky); border-bottom-color: var(--cd-sky); }
   nav button.nav-cta {
-    margin-left: auto;
     align-self: center;
     color: white;
     background: var(--cd-orange);
@@ -105,6 +104,19 @@
   }
   nav button.nav-cta:hover { color: white; background: var(--cd-orange-dark); }
   nav button.nav-cta.active { color: white; border-bottom-color: transparent; }
+  nav button.nav-agreement {
+    margin-left: auto;
+    align-self: center;
+    color: white;
+    background: transparent;
+    font-weight: 700;
+    padding: 0.5rem 1.1rem;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    border-bottom: none;
+  }
+  nav button.nav-agreement:hover { border-color: white; }
+  nav button.nav-agreement.active { border-color: white; border-bottom-color: transparent; }
 
   /* PAGES */
   .page { display: none; max-width: 800px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
@@ -214,7 +226,7 @@
     border: 2px solid var(--cd-white);
     box-shadow: 0 0 0 2px var(--cd-blue);
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.58rem; color: white; font-weight: 700;
+    font-size: 0.61rem; color: white; font-weight: 700;
   }
   .tl-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cd-blue); margin-bottom: 0.2rem; }
   .tl-title { font-size: 0.97rem; font-weight: 700; color: var(--cd-text); margin-bottom: 0.25rem; }
@@ -444,6 +456,7 @@
   <button onclick="showPage('career', this)">🚀 Career Mentorship</button>
   <button onclick="showPage('myrole', this)">👤 My Role</button>
   <button onclick="showPage('faq', this)">💬 FAQs</button>
+  <button class="nav-agreement" onclick="showPage('agreement', this)">🤝 Mentorship Agreement</button>
   <button class="nav-cta" onclick="showPage('apply', this)">📝 Apply Now</button>
 </nav>
 
@@ -668,8 +681,8 @@
 
   <div class="card">
     <h2>Want to become a Mentor?</h2>
-    <p>You don't have to be the most senior person in the building. You just have to care about someone else's growth, be willing to be honest with them, and show up consistently.</p>
-    <p style="margin-top:0.7rem;">You'll complete a 2-hour orientation before your first cohort and join a monthly Mentor roundtable where you can learn from and lean on other mentors. You're never left figuring it out alone.</p>
+    <p>You don't have to be the most senior person in the building, but you have to have been at ConsumerDirect for at least 2 years. You just have to care about someone else's growth, be willing to be honest with them, and show up consistently.</p>
+    <p style="margin-top:0.7rem;">You'll complete a 2-hour orientation before your first cohort and join a Mentor slack channel where you can learn from and lean on other mentors. You're never left figuring it out alone.</p>
     <div class="callout sky" style="margin-top:1rem;">
       <strong>Mentors get a lot out of this too.</strong> ConsumerDirect wants to reward our mentors, join our next cohort and find out how you can get rewarded.
     </div>
@@ -857,19 +870,15 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">How much time does this actually take? <span class="arrow">▾</span></button>
-      <div class="faq-a">For new hires, your Buddy reaches out to you — just show up and be present. For Career Mentorship, expect about 1–1.5 hours every two weeks plus a few minutes to prep your agenda. For Buddies, plan for 2–3 hours a week in the first two weeks, tapering to about 1 hour per week after that. For Mentors, roughly 1–1.5 hours bi-weekly plus the monthly roundtable lunch.</div>
+      <div class="faq-a">For new hires, your Buddy reaches out to you — just show up and be present. For Buddies, plan for 2–3 hours a week in the first two weeks, tapering to about 1 hour per week after that. For Mentees, expect about 1–1.5 hours every two weeks plus a few minutes to prep your agenda. For Mentors, roughly 1–1.5 hours bi-weekly.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Is what I share with my Buddy or Mentor confidential? <span class="arrow">▾</span></button>
       <div class="faq-a">Yes. What you share stays between you and your Buddy or Mentor unless you both agree otherwise — or there's a serious safety concern that needs to be escalated. Your Buddy and Mentor are not reporting the content of your conversations back to your manager or HR.</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">I don't know what my career goals are yet. Can I still apply for mentorship? <span class="arrow">▾</span></button>
-      <div class="faq-a">Absolutely — and honestly, that's pretty common. "I'm not sure where I want to go yet" is a completely valid starting point. A good mentor will help you figure that out, not expect you to arrive with it already figured out. Just be honest about it in your application.</div>
-    </div>
-    <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">When do Career Mentorship applications open? <span class="arrow">▾</span></button>
-      <div class="faq-a">Twice a year — about six weeks before each cohort kicks off. Cohort A starts in January, Cohort B starts in July. HR will send a heads-up when applications open. You need to have been at ConsumerDirect for at least 3 months to apply as a mentee.</div>
+      <div class="faq-a">You apply whenever you're ready and we'll put you in the next available cohort. Cohort A starts in January, Cohort B starts in July. Applications for the cohort will close 60 days before the start date. You need to have been at ConsumerDirect for at least 6 months to apply as a mentee.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Does my manager see what I share in the program? <span class="arrow">▾</span></button>
@@ -877,8 +886,7 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">How are Buddies and Mentors recognized here? <span class="arrow">▾</span></button>
-      <div class="faq-a">We take recognition seriously. Buddies and Mentors are acknowledged through team shoutouts, quarterly spotlights, and dedicated "Buddy of the Quarter" and "Mentor of the Quarter" recognition. Their participation is also noted in the context of performance reviews as a demonstrated leadership contribution. It's not just a thank you — it's visible.</div>
-    </div>
+      <div class="faq-a">We go big! Buddies and Mentors will be recognized at an award ceremony prior to the start of each cohort. This will include a luncheon, awards, and more!</div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Who do I contact if I have questions? <span class="arrow">▾</span></button>
       <div class="faq-a">The HR / People Ops team owns this program and is your first stop for anything — getting matched, applying, requesting a rematch, or just figuring out if this is right for you right now. Don't hesitate to reach out. That's exactly what we're here for.</div>
@@ -890,6 +898,46 @@
     <span style="font-size:0.75rem;">People First — for our customers, and for each other.</span>
   </div>
 
+</div>
+
+<!-- ═══════════ MENTORSHIP AGREEMENT ═══════════ -->
+<div id="agreement" class="page">
+
+  <div class="hero" style="background: linear-gradient(135deg, var(--cd-sky) 0%, var(--cd-blue) 100%);">
+    <div class="hero-eyebrow">The Fine Print, Kept Simple</div>
+    <h1>🤝 Mentorship Agreement</h1>
+    <p>A shared understanding between Buddies, Mentees, and Mentors so everyone knows what to expect going in.</p>
+  </div>
+
+  <div class="card">
+    <h2>What We're Agreeing To</h2>
+    <p>Whether you're paired up as a Buddy, Mentee, or Mentor, this agreement sets the ground rules for the relationship. It's not a legal contract — it's a shared commitment to showing up for each other.</p>
+
+    <h3>As a participant, I agree to:</h3>
+    <ul>
+      <li>Show up prepared and on time for scheduled check-ins.</li>
+      <li>Communicate honestly, including when a match isn't working — a rematch is always fine to request.</li>
+      <li>Keep conversations confidential unless there's a safety or policy concern that needs to be escalated.</li>
+      <li>Give the relationship a real chance before deciding it's not the right fit.</li>
+      <li>Treat this as a two-way relationship — both people get something out of it.</li>
+    </ul>
+
+    <h3>Time commitment</h3>
+    <div class="row-list">
+      <div class="row-item">
+        <div class="row-label">Mentee / Mentor</div>
+        <div class="row-text">Roughly 30–60 minutes every other week for the 6-month program.</div>
+      </div>
+    </div>
+
+    <div class="callout sky">This page is a plain-language summary, not a formal HR document. If you need the official signed version, reach out to People Ops before your first session.</div>
+  </div>
+
+  <div class="card">
+    <h2>Ready to Commit?</h2>
+    <p style="margin-top:0;">If this all sounds good, head to Apply Now to get matched.</p>
+    <button class="btn-submit" onclick="navTo('apply')">📝 Apply Now</button>
+  </div>
 </div>
 
 <!-- ═══════════ APPLY NOW ═══════════ -->
@@ -980,11 +1028,12 @@ function navTo(id) {
 }
 
 const TOUR_STEPS = [
-  { page: 'home', title: '🏠 Home', body: "The front door — a quick overview of the whole program, with cards linking into the Buddy System and Career Mentorship tracks." },
+  { page: 'home', title: '🏠 Home', body: "The front door — a quick overview of the whole program, click into the Buddy System or Career Mentorship tiles to learn more about each track." },
   { page: 'buddy', title: '🤝 Buddy System', body: "Everything about your first 60 days here: what a Buddy is, the week-by-week timeline, and how to become one yourself." },
   { page: 'career', title: '🚀 Career Mentorship', body: "The 6-month mentee/mentor program — how it works, what you'll actually talk about, and how to apply as a Mentee or a Mentor." },
   { page: 'myrole', title: '👤 My Role', body: "Pick your role — New Hire, Buddy, Mentee, Mentor, or Manager — to see exactly what's expected of you." },
   { page: 'faq', title: '💬 FAQs', body: "Quick answers to the questions people ask most before raising their hand — confidentiality, time commitment, rematches, and more." },
+  { page: 'agreement', title: '🤝 Mentorship Agreement', body: "The shared ground rules for Buddies, Mentees, and Mentors — what everyone commits to and the expected time investment." },
   { page: 'apply', title: '📝 Apply Now', body: "Ready to jump in? Submit your name, department, and whether you're applying as a Buddy, Mentee, or Mentor, right here." }
 ];
 let tourIndex = 0;
